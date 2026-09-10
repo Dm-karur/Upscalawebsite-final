@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply text-foreground bg-background font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Smooth animations and basic transitions */
+  .transition-all-200 {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+}
