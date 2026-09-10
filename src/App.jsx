@@ -5,6 +5,7 @@ import Button from './components/Button';
 import ServiceCard from './components/ServiceCard';
 import ProductCard from './components/ProductCard';
 import IndustryCard from './components/IndustryCard';
+import AnimatedClosingCard from './components/AnimatedClosingCard';
 import { 
   CodeXml, Blocks, Sparkles, Workflow, Plug, Layers,
   Building2, Factory, ClipboardCheck, Users,
@@ -22,7 +23,7 @@ function App() {
         
         {/* 02 & 03: Hero Section & Architecture Visual */}
         <section className="pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               
               <div className="max-w-2xl">
@@ -52,59 +53,66 @@ function App() {
               </div>
 
               {/* Conceptual Architecture Visual */}
-              <div className="relative bg-navy rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl overflow-hidden border border-navy-light">
-                <div className="flex items-center justify-between mb-12">
-                  <span className="text-sm font-semibold tracking-widest text-muted uppercase">Your Business, Connected</span>
-                  <Blocks className="w-5 h-5 text-muted" />
+              <div className="relative bg-navy rounded-[2rem] p-6 lg:p-8 text-white shadow-2xl overflow-hidden border border-navy-light">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="text-xs font-semibold tracking-widest text-muted uppercase">Your Business, Connected</span>
+                  <Blocks className="w-4 h-4 text-muted" />
                 </div>
                 
-                <h3 className="text-2xl font-medium mb-12">A stronger foundation. More possibilities.</h3>
+                <h3 className="text-xl font-medium mb-8">A stronger foundation. More possibilities.</h3>
                 
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  <div className="bg-navy-light border border-white/10 rounded-xl p-4 flex flex-col items-center text-center gap-3">
-                    <Users className="w-6 h-6 text-primary" />
-                    <span className="text-sm">Your people</span>
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="bg-navy-light border border-white/10 rounded-xl p-3 flex flex-col items-center text-center gap-2">
+                    <Users className="w-5 h-5 text-primary" />
+                    <span className="text-xs">Your people</span>
                   </div>
-                  <div className="bg-navy-light border border-white/10 rounded-xl p-4 flex flex-col items-center text-center gap-3">
-                    <Workflow className="w-6 h-6 text-primary" />
-                    <span className="text-sm">Your processes</span>
+                  <div className="bg-navy-light border border-white/10 rounded-xl p-3 flex flex-col items-center text-center gap-2">
+                    <Workflow className="w-5 h-5 text-primary" />
+                    <span className="text-xs">Your processes</span>
                   </div>
-                  <div className="bg-navy-light border border-white/10 rounded-xl p-4 flex flex-col items-center text-center gap-3">
-                    <Database className="w-6 h-6 text-primary" />
-                    <span className="text-sm">Your data</span>
+                  <div className="bg-navy-light border border-white/10 rounded-xl p-3 flex flex-col items-center text-center gap-2">
+                    <Database className="w-5 h-5 text-primary" />
+                    <span className="text-xs">Your data</span>
                   </div>
                 </div>
 
-                <div className="flex justify-center mb-8 relative">
-                   <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-primary"></div>
+                <div className="flex justify-center mb-6 relative">
+                   <div className="w-px h-6 bg-gradient-to-b from-primary/50 to-primary"></div>
                 </div>
 
-                <div className="bg-primary rounded-2xl p-6 flex items-start gap-4 mb-8">
-                  <Layers className="w-8 h-8 text-white shrink-0" />
+                <div className="bg-primary rounded-xl p-4 flex items-start gap-3 mb-6">
+                  <Layers className="w-6 h-6 text-white shrink-0" />
                   <div>
-                    <div className="font-bold text-lg mb-1">Your business software</div>
-                    <div className="text-white/80 text-sm">Purpose-built. Connected. In your control.</div>
+                    <div className="font-bold text-base mb-1">Your business software</div>
+                    <div className="text-white/80 text-xs">Purpose-built. Connected. In your control.</div>
                   </div>
                 </div>
 
-                <div className="flex justify-center mb-8 relative">
-                   <div className="w-px h-8 bg-gradient-to-b from-primary to-primary/50"></div>
+                <div className="flex justify-center mb-6 relative">
+                   <div className="w-px h-6 bg-gradient-to-b from-primary to-primary/50"></div>
                 </div>
 
-                <div className="bg-navy-light border border-primary/30 rounded-2xl p-6 flex items-start gap-4 relative overflow-hidden">
+                <div className="bg-navy-light border border-primary/30 rounded-xl p-4 flex items-start gap-3 relative overflow-hidden">
                   <div className="absolute inset-0 bg-primary/5"></div>
-                  <Sparkles className="w-8 h-8 text-primary shrink-0 relative z-10" />
+                  <Sparkles className="w-6 h-6 text-primary shrink-0 relative z-10" />
                   <div className="relative z-10">
-                    <div className="font-semibold text-lg mb-1">Intelligence, where it adds value</div>
-                    <div className="text-muted text-sm">Document assistance · Insights · Automation</div>
+                    <div className="font-semibold text-base mb-1">Intelligence, where it adds value</div>
+                    <div className="text-muted text-xs">Document assistance · Insights · Automation</div>
                   </div>
                 </div>
                 
-                <div className="text-center text-xs text-muted mt-8 uppercase tracking-widest">
+                <div className="text-center text-[10px] text-muted mt-6 uppercase tracking-widest">
                   AI-ready architecture · Human oversight by design
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Animated Closing Action (Moved below Hero) */}
+        <section className="py-24">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
+            <AnimatedClosingCard />
           </div>
         </section>
 
@@ -132,7 +140,7 @@ function App() {
 
         {/* 05: What We Build */}
         <section className="py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
               <div>
                 <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">What we build</div>
@@ -188,7 +196,7 @@ function App() {
 
         {/* 06: Featured Products */}
         <section className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
               <div>
                 <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">Purpose-built products</div>
@@ -233,7 +241,7 @@ function App() {
         {/* 07: AI Readiness */}
         <section className="py-24 bg-navy text-white overflow-hidden relative">
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">AI, with a business purpose</div>
@@ -283,7 +291,7 @@ function App() {
 
         {/* 08: Industries */}
         <section className="py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="mb-16 max-w-2xl">
               <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">Industries we work around</div>
               <h2 className="text-4xl font-bold text-navy leading-tight">
@@ -304,7 +312,7 @@ function App() {
 
         {/* 09: How We Work */}
         <section className="py-24 bg-secondary/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
               <div>
                 <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">How we work</div>
@@ -336,7 +344,7 @@ function App() {
 
         {/* 10: FAQs */}
         <section className="py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
               <div className="lg:col-span-2">
                 <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">A little clarity</div>
@@ -366,28 +374,6 @@ function App() {
                     </div>
                   </details>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 11: Closing Enquiry Action */}
-        <section className="py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-primary rounded-[2.5rem] p-10 lg:p-16 text-center text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 -mt-16 -mr-16 text-white/10">
-                <Sparkles className="w-64 h-64" />
-              </div>
-              <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  What could work better<br/>in your business?
-                </h2>
-                <p className="text-white/90 text-xl mb-10">
-                  Let's turn that conversation into a clear software direction.
-                </p>
-                <Button href="/book-consultation" className="bg-white text-primary hover:bg-secondary border-none" icon={ArrowUpRight}>
-                  Let's talk about it
-                </Button>
               </div>
             </div>
           </div>
