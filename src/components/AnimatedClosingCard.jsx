@@ -12,10 +12,10 @@ const AnimatedClosingCard = () => {
   ];
 
   useEffect(() => {
-    // Cycle through 4 states (0, 1, 2, 3) every 3.5 seconds
+    // Cycle through 4 states (0, 1, 2, 3) every 2 seconds
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 4);
-    }, 3500);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);

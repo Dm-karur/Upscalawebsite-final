@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import Button from './Button';
 
@@ -41,16 +42,15 @@ const Navbar = () => {
             <img src="/upscala-logo.jpg" alt="UpScala Agentix" className="h-10 w-auto rounded-md" />
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-sm font-medium text-muted hover:text-primary transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -74,13 +74,13 @@ const Navbar = () => {
           <div className="md:hidden py-4 border-t border-border animate-in slide-in-from-top-2">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="text-sm font-medium text-foreground hover:text-primary px-2"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border px-2">
                 <Button href="/book-consultation" className="w-full justify-center" icon={ArrowUpRight}>
