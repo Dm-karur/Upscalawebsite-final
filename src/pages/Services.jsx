@@ -86,7 +86,7 @@ const Services = () => {
             <ServiceDetailCard 
               title="Legacy Software Modernization"
               description="Improve existing applications with a practical plan for continuity and change."
-              href="/services/legacy-modernization"
+              href="/services/legacy-software-modernization"
             />
           </div>
         </div>
