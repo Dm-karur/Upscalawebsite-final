@@ -1,74 +1,26 @@
 import React from 'react';
 import Button from '../components/Button';
-import ServiceCard from '../components/ServiceCard';
+import ParallaxServicesSection from '../components/services/ParallaxServicesSection';
 import ProductCard from '../components/ProductCard';
 import IndustryCard from '../components/IndustryCard';
 import AnimatedClosingCard from '../components/AnimatedClosingCard';
 import AnimatedHowWeWork from '../components/AnimatedHowWeWork';
+import HeroSection from '../components/hero/HeroSection';
+import InteractiveJourneyMap from '../components/InteractiveJourneyMap';
 import { 
-  CodeXml, Blocks, Sparkles, Workflow, Plug, Layers,
   Building2, Factory, ClipboardCheck, Users,
   FolderKanban, FileText, ChartColumn, ArrowRight,
   Database, ShieldCheck, Check, ArrowUpRight,
-  ChevronDown
+  ChevronDown, Sparkles, Blocks
 } from 'lucide-react';
 
 const Home = () => {
   return (
     <>
-      {/* 02 & 03: Hero Section */}
-      <section 
-        className="relative w-full overflow-hidden min-h-[90vh] flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/Hero%20section%20background.png')" }}
-      >
-        <div className="absolute inset-0 bg-navy/20 z-0"></div> {/* Subtle dark overlay to ensure text contrast */}
+      {/* 01: Sleek Rounded-Card Hero Section */}
+      <HeroSection />
 
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-5xl relative z-10 flex flex-col items-center text-center mt-10">
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1] max-w-4xl drop-shadow-sm">
-            Scale your business. <span className="text-white">Automate.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-2xl drop-shadow-sm">
-            Agentix powers your growth with AI-driven workflow automation, turning potential into profit for global teams.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 w-full">
-            <Button href="/project-enquiry" className="!bg-primary !text-white hover:!bg-primary-hover shadow-lg shadow-primary/30 w-full sm:w-auto px-8">
-              Get started free
-            </Button>
-            <Button href="/products" className="!bg-transparent !text-white hover:!bg-white/10 border border-white/30 backdrop-blur-sm w-full sm:w-auto px-8">
-              Explore solutions
-            </Button>
-          </div>
-          
-          {/* Bottom Symbols Row */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-16 text-sm font-semibold tracking-widest uppercase text-white drop-shadow-sm">
-            <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-default">
-              <Workflow className="w-5 h-5 text-primary" /> BUILD
-            </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-default">
-              <Check className="w-5 h-5 text-primary" /> DEPLOY
-            </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-default">
-              <ArrowUpRight className="w-5 h-5 text-primary" /> SCALE
-            </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-default">
-              <ChartColumn className="w-5 h-5 text-primary" /> REPORT
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Animated Closing Action (Moved below Hero) */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <AnimatedClosingCard />
-        </div>
-      </section>
-
-      {/* 04: Industry Strip */}
+      {/* 02: Industry Strip */}
       <div className="border-y border-border bg-secondary/50 py-8 overflow-hidden">
         <div className="flex items-center w-max animate-marquee hover:[animation-play-state:paused]">
           {/* Group 1 */}
@@ -90,61 +42,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 05: What We Build */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">What we build</div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy leading-tight">
-                Less disconnected work.<br/>More business, moving forward.
-              </h2>
-            </div>
-            <a href="/services" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
-              Explore all services <ArrowUpRight className="w-5 h-5 ml-1" />
-            </a>
-          </div>
+      {/* 03: High-End Scroll-Pinned Interactive Journey Map */}
+      <InteractiveJourneyMap />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ServiceCard 
-              title="Custom Software Development"
-              description="Business applications shaped around your operations, people and priorities."
-              icon={CodeXml}
-              href="/services/custom-software-development"
-            />
-            <ServiceCard 
-              title="Custom ERP Development"
-              description="Connect purchasing, inventory, projects and reporting in one business system."
-              icon={Blocks}
-              href="/services/erp-development"
-            />
-            <ServiceCard 
-              title="AI Integration & Automation"
-              description="Put document assistance, knowledge search and intelligent workflows to practical use."
-              icon={Sparkles}
-              href="/services/ai-integration-automation"
-            />
-            <ServiceCard 
-              title="Business Process Automation"
-              description="Turn recurring approvals and manual follow-ups into consistent workflows."
-              icon={Workflow}
-              href="/services/business-automation"
-            />
-            <ServiceCard 
-              title="API & System Integration"
-              description="Help existing applications exchange the information your business depends on."
-              icon={Plug}
-              href="/services/api-system-integration"
-            />
-            <ServiceCard 
-              title="SaaS Product Development"
-              description="Develop a focused software product with room to grow as customer needs evolve."
-              icon={Layers}
-              href="/services/saas-product-development"
-            />
-          </div>
-        </div>
-      </section>
+      {/* 05: Dedicated Full-Width Parallax Services Section */}
+      <ParallaxServicesSection />
 
       {/* 06: Featured Products */}
       <section className="py-24 bg-secondary/30">
@@ -192,7 +94,6 @@ const Home = () => {
 
       {/* 07: AI Readiness */}
       <section className="py-24 bg-navy text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
         <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -263,17 +164,23 @@ const Home = () => {
       </section>
 
       {/* 09: How We Work */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
+      <section className="relative py-24 sm:py-32 overflow-hidden bg-white text-navy border-t border-slate-100">
+        <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div>
-              <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">How we work</div>
-              <h2 className="text-4xl font-bold text-navy leading-tight">
+              <div className="text-primary font-mono font-bold tracking-widest uppercase text-xs sm:text-sm mb-3">
+                How we work
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-navy tracking-tight leading-tight">
                 Understand first.<br/>Build with clarity.
               </h2>
             </div>
-            <a href="/company/how-we-work" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
-              Our approach <ArrowUpRight className="w-5 h-5 ml-1" />
+            <a 
+              href="/company/how-we-work" 
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 hover:bg-navy text-navy hover:text-white border border-slate-200 font-medium text-sm transition-all duration-300 group shadow-sm"
+            >
+              <span>Our approach</span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
 

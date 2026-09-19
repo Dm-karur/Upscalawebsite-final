@@ -8,10 +8,19 @@ export default {
     extend: {
       colors: {
         background: '#ffffff',
-        foreground: '#0f172a', // Dark navy text
+        foreground: '#0f172a',
         primary: {
-          DEFAULT: '#0066ff', // Vibrant blue from "Let's talk" and "Ready for what's next"
+          DEFAULT: '#0066ff',
           hover: '#0052cc',
+        },
+        electric: {
+          DEFAULT: '#0066FF',
+          bright: '#0088FF',
+          glow: '#38BDF8',
+        },
+        ice: {
+          DEFAULT: '#E0F2FE',
+          light: '#F0F9FF',
         },
         secondary: {
           DEFAULT: '#f8fafc',
@@ -22,12 +31,13 @@ export default {
         },
         border: '#e2e8f0',
         navy: {
-          DEFAULT: '#0a192f', // Dark background for the system card
-          light: '#112240',
+          DEFAULT: '#0B192C',
+          dark: '#000B1E',
+          light: '#132338',
         }
       },
       fontFamily: {
-        sans: ['Arial', 'Helvetica', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

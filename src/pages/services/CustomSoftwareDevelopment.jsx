@@ -108,7 +108,6 @@ const CustomSoftwareDevelopment = () => {
             </div>
             
             <div className="bg-navy rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-4">AI readiness, with clear boundaries</h3>
                 <p className="text-white/80 leading-relaxed">
