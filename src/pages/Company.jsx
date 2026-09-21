@@ -3,40 +3,24 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import CtaBox from '../components/CtaBox';
+import PageHeroSection from '../components/hero/PageHeroSection';
+import InteractiveJourneyMap from '../components/InteractiveJourneyMap';
 
 const Company = () => {
   return (
     <>
       {/* Page Hero */}
-      <section className="pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm font-medium text-muted mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-navy">Company</span>
-            <span>/</span>
-            <span className="text-navy">About UpScala Agentix</span>
-          </nav>
-          
-          <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-6 flex items-center gap-2">
-            <div className="w-8 h-[2px] bg-primary"></div>
-            About UpScala Agentix
-          </div>
-          
-          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-navy mb-6 leading-[1.1] max-w-4xl">
-            Understand the business. Build what matters.
-          </h1>
-          
-          <p className="text-xl text-muted leading-relaxed mb-10 max-w-2xl">
-            UpScala Agentix focuses on custom business software, industry workflows and practical AI integration. Our starting point is the way people need to work.
-          </p>
-          
-          <Button href="/contact" icon={ArrowUpRight}>Start a conversation</Button>
-        </div>
-      </section>
+      <PageHeroSection 
+        title="Understand the business. Build what matters."
+        description="UpScala Agentix focuses on custom business software, industry workflows and practical AI integration. Our starting point is the way people need to work."
+        image="/about_hero.jpg"
+      />
+
+      {/* Upscala Journey Section */}
+      <InteractiveJourneyMap />
 
       {/* Our Direction & Business Needs */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             

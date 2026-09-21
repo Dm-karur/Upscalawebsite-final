@@ -7,35 +7,64 @@ import {
 import Button from '../../components/Button';
 import ServiceDetailCard from '../../components/ServiceDetailCard';
 import CtaBox from '../../components/CtaBox';
+import PageHeroSection from '../../components/hero/PageHeroSection';
 
 const BusinessAutomation = () => {
   return (
     <>
-      {/* Page Hero */}
-      <section className="pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+      <PageHeroSection 
+        title="Business Process Automation"
+        description="Keep work moving, without chasing every step."
+        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop"
+        fullScreen={true}
+      />
+
+      {/* Overview Section */}
+      <section className="py-16 lg:py-24 overflow-hidden bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <nav aria-label="Breadcrumb" className="flex items-center flex-wrap gap-2 text-sm font-medium text-muted mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>/</span>
-            <Link to="/services" className="hover:text-primary transition-colors">Services</Link>
-            <span>/</span>
-            <span className="text-navy">Business Process Automation</span>
-          </nav>
-          
-          <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-6 flex items-center gap-2">
-            <div className="w-8 h-[2px] bg-primary"></div>
-            Business Process Automation
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Content - Left */}
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex px-4 py-2 bg-slate-100 rounded-md text-[13px] font-semibold text-slate-700 mb-6 tracking-wide">
+                Overview
+              </div>
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-navy mb-6 leading-tight">
+                Keep work moving, without chasing every step.
+              </h2>
+              
+              <p className="text-lg sm:text-xl text-muted leading-relaxed mb-8 max-w-2xl">
+                Manual reminders and disconnected approval records make it hard to know what is pending and who should act next. Business process automation brings triggers, rules, responsibilities and exceptions into a defined workflow. UpScala Agentix helps convert repeatable operational processes into applications your team can follow and managers can review.
+              </p>
+              
+              <Button href="/project-enquiry" icon={ArrowUpRight}>Discuss your project</Button>
+            </div>
+
+            {/* Image - Right (Creative Agency Style) */}
+            <div className="relative w-full aspect-square md:aspect-[4/3] max-w-lg mx-auto lg:ml-auto xl:max-w-none order-1 lg:order-2">
+              <div className="absolute inset-0 rounded-[1.5rem] overflow-hidden">
+                <img src="/insights_hero.jpg" alt="Business Process Automation" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0066FF]/10 to-transparent"></div>
+              </div>
+              
+              {/* Top Right Cutout Cover */}
+              <div className="absolute top-[-1px] right-[-1px] w-32 md:w-40 h-16 md:h-20 bg-white rounded-bl-[1.5rem] z-10 hidden sm:block">
+                {/* Outer Curve Top */}
+                <div className="absolute top-0 right-[calc(100%-1px)] w-6 h-6 bg-transparent rounded-tr-[1.25rem] shadow-[10px_-10px_0_10px_white]"></div>
+                {/* Outer Curve Right */}
+                <div className="absolute top-[calc(100%-1px)] right-0 w-6 h-6 bg-transparent rounded-tr-[1.25rem] shadow-[10px_-10px_0_10px_white]"></div>
+              </div>
+              
+              {/* Bottom Left Cutout Cover */}
+              <div className="absolute bottom-[-1px] left-[-1px] w-16 md:w-20 h-32 md:h-40 bg-white rounded-tr-[1.5rem] z-10 hidden sm:block">
+                {/* Outer Curve Bottom */}
+                <div className="absolute bottom-0 left-[calc(100%-1px)] w-6 h-6 bg-transparent rounded-bl-[1.25rem] shadow-[-10px_10px_0_10px_white]"></div>
+                {/* Outer Curve Left */}
+                <div className="absolute bottom-[calc(100%-1px)] left-0 w-6 h-6 bg-transparent rounded-bl-[1.25rem] shadow-[-10px_10px_0_10px_white]"></div>
+              </div>
+            </div>
+
           </div>
-          
-          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-navy mb-6 leading-[1.1] max-w-4xl">
-            Keep work moving, without chasing every step.
-          </h1>
-          
-          <p className="text-xl text-muted leading-relaxed mb-10 max-w-3xl">
-            Manual reminders and disconnected approval records make it hard to know what is pending and who should act next. Business process automation brings triggers, rules, responsibilities and exceptions into a defined workflow. UpScala Agentix helps convert repeatable operational processes into applications your team can follow and managers can review.
-          </p>
-          
-          <Button href="/project-enquiry" icon={ArrowUpRight}>Discuss your project</Button>
         </div>
       </section>
 

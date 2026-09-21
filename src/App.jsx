@@ -12,6 +12,8 @@ import CaEcoPro from './pages/products/CaEcoPro';
 import Industries from './pages/Industries';
 import OurWork from './pages/OurWork';
 import Company from './pages/Company';
+import Insights from './pages/Insights';
+import Contact from './pages/Contact';
 import Construction from './pages/industries/Construction';
 import Manufacturing from './pages/industries/Manufacturing';
 import AuditCompliance from './pages/industries/AuditCompliance';
@@ -58,6 +60,10 @@ function App() {
           <Route path="/industries/trading-distribution" element={<TradingDistribution />} />
           <Route path="/our-work" element={<OurWork />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/project-enquiry" element={<Contact />} />
+          <Route path="/book-consultation" element={<Contact />} />
         </Routes>
       </main>
 

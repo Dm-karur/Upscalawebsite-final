@@ -3,35 +3,17 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import CtaBox from '../components/CtaBox';
+import PageHeroSection from '../components/hero/PageHeroSection';
 
 const OurWork = () => {
   return (
     <>
       {/* Page Hero */}
-      <section className="pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm font-medium text-muted mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-navy">Our work</span>
-          </nav>
-          
-          <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-6 flex items-center gap-2">
-            <div className="w-8 h-[2px] bg-primary"></div>
-            Our work
-          </div>
-          
-          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-navy mb-6 leading-[1.1] max-w-4xl">
-            Business workflows at the centre of the work.
-          </h1>
-          
-          <p className="text-xl text-muted leading-relaxed mb-10 max-w-2xl">
-            Explore our software focus through CivilDesk, CA Eco Pro and custom business application development.
-          </p>
-          
-          <Button href="/project-enquiry" icon={ArrowUpRight}>Discuss a similar requirement</Button>
-        </div>
-      </section>
+      <PageHeroSection 
+        title="Business workflows at the centre of the work."
+        description="Explore our software focus through CivilDesk, CA Eco Pro and custom business application development."
+        image="/case_studies_hero.jpg"
+      />
 
       {/* Product and application focus */}
       <section className="py-24 bg-secondary/30">

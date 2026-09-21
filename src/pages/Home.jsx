@@ -2,43 +2,65 @@ import React from 'react';
 import Button from '../components/Button';
 import ParallaxServicesSection from '../components/services/ParallaxServicesSection';
 import ProductCard from '../components/ProductCard';
+import ProductShowcase from '../components/ProductShowcase';
 import IndustryCard from '../components/IndustryCard';
 import AnimatedClosingCard from '../components/AnimatedClosingCard';
-import AnimatedHowWeWork from '../components/AnimatedHowWeWork';
 import HeroSection from '../components/hero/HeroSection';
 import InteractiveJourneyMap from '../components/InteractiveJourneyMap';
 import { 
-  Building2, Factory, ClipboardCheck, Users,
   FolderKanban, FileText, ChartColumn, ArrowRight,
   Database, ShieldCheck, Check, ArrowUpRight,
-  ChevronDown, Sparkles, Blocks
+  ChevronDown, Sparkles, Blocks,
+  Building2, Factory, ClipboardCheck, Users
 } from 'lucide-react';
+import { Icon } from '@iconify/react';
+
+const FAQItem = ({ faq, isOpen, onToggle }) => {
+  return (
+    <div className={`bg-white border rounded-2xl transition-all duration-300 ${isOpen ? 'border-primary shadow-sm' : 'border-border'}`}>
+      <button 
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-6 font-semibold text-lg text-navy text-left outline-none"
+      >
+        {faq.q}
+        <span className={`text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+          <ChevronDown className="w-5 h-5" />
+        </span>
+      </button>
+      <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+        <div className="overflow-hidden">
+          <div className="px-6 pb-6 pt-0 text-muted leading-relaxed">
+            {faq.a}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Home = () => {
+  const [openFaqIndex, setOpenFaqIndex] = React.useState(0);
   return (
     <>
       {/* 01: Sleek Rounded-Card Hero Section */}
       <HeroSection />
 
       {/* 02: Industry Strip */}
-      <div className="border-y border-border bg-secondary/50 py-8 overflow-hidden">
+      <div className="bg-white py-8 overflow-hidden flex">
         <div className="flex items-center w-max animate-marquee hover:[animation-play-state:paused]">
-          {/* Group 1 */}
-          <div className="flex items-center gap-12 px-6 text-base font-medium text-navy shrink-0">
-            <span className="text-muted">Built around real operations</span>
-            <div className="flex items-center gap-2"><Building2 className="w-5 h-5 text-primary" /> Construction</div>
-            <div className="flex items-center gap-2"><Factory className="w-5 h-5 text-primary" /> Manufacturing</div>
-            <div className="flex items-center gap-2"><ClipboardCheck className="w-5 h-5 text-primary" /> Audit & compliance</div>
-            <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> Professional services</div>
-          </div>
-          {/* Group 2 */}
-          <div className="flex items-center gap-12 px-6 text-base font-medium text-navy shrink-0">
-            <span className="text-muted">Built around real operations</span>
-            <div className="flex items-center gap-2"><Building2 className="w-5 h-5 text-primary" /> Construction</div>
-            <div className="flex items-center gap-2"><Factory className="w-5 h-5 text-primary" /> Manufacturing</div>
-            <div className="flex items-center gap-2"><ClipboardCheck className="w-5 h-5 text-primary" /> Audit & compliance</div>
-            <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> Professional services</div>
-          </div>
+          {[1, 2].map((group) => (
+            <div key={group} className="flex items-center gap-12 px-6 text-base font-medium text-navy shrink-0">
+              {[1, 2, 3].map((repeat) => (
+                <React.Fragment key={repeat}>
+                  <span className="text-muted">Built around real operations</span>
+                  <div className="flex items-center gap-2"><Icon icon="solar:city-bold-duotone" className="w-7 h-7 text-primary" /> Construction</div>
+                  <div className="flex items-center gap-2"><Icon icon="solar:smart-home-bold-duotone" className="w-7 h-7 text-primary" /> Manufacturing</div>
+                  <div className="flex items-center gap-2"><Icon icon="solar:clipboard-check-bold-duotone" className="w-7 h-7 text-primary" /> Audit & compliance</div>
+                  <div className="flex items-center gap-2"><Icon icon="solar:case-bold-duotone" className="w-7 h-7 text-primary" /> Professional services</div>
+                </React.Fragment>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -49,44 +71,52 @@ const Home = () => {
       <ParallaxServicesSection />
 
       {/* 06: Featured Products */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-24 md:py-32 bg-secondary/30">
         <div className="container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 md:mb-28">
+            <div className="max-w-2xl">
               <div className="text-primary font-semibold tracking-wide uppercase text-sm mb-4">Purpose-built products</div>
               <h2 className="text-4xl lg:text-5xl font-bold text-navy leading-tight">
                 Specific industries.<br/>Thoughtfully connected software.
               </h2>
             </div>
-            <a href="/products" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
-              Meet our products <ArrowUpRight className="w-5 h-5 ml-1" />
+            <a href="/products" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all group">
+              Meet our products <ArrowUpRight className="w-5 h-5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <ProductCard 
-              tag="Construction & civil engineering"
+          <div className="flex flex-col gap-24 md:gap-32">
+            <ProductShowcase 
+              category="Construction & civil engineering"
               name="CivilDesk"
               description="Bring project planning, site operations and cost visibility into one connected construction workflow."
-              features={['Projects & BOQ', 'Site operations', 'Cost visibility']}
+              tags={['Projects & BOQ', 'Site operations', 'Cost visibility']}
+              href="/products/civildesk"
+              imagePosition="left"
+              image="/civildesk_mockup.jpg"
               workflowSteps={[
                 { title: 'Plan the project', icon: FolderKanban },
                 { title: 'Capture site work', icon: FileText },
                 { title: 'Review & report', icon: ChartColumn },
               ]}
-              href="/products/civildesk"
             />
-            <ProductCard 
-              tag="Audit & professional practice"
+
+            {/* Subtle Divider */}
+            <div className="w-full h-px bg-border/60"></div>
+
+            <ProductShowcase 
+              category="Audit & professional practice"
               name="CA Eco Pro"
               description="Bring structure to audit work, documentation and review, with a clearer view of what needs attention."
-              features={['Audit workflows', 'Documentation', 'Review & reporting']}
+              tags={['Audit workflows', 'Documentation', 'Review & reporting']}
+              href="/products/ca-eco-pro"
+              imagePosition="right"
+              image="/ca_eco_pro_mockup.jpg"
               workflowSteps={[
                 { title: 'Plan the work', icon: FolderKanban },
                 { title: 'Organise evidence', icon: FileText },
                 { title: 'Review & report', icon: ChartColumn },
               ]}
-              href="/products/ca-eco-pro"
             />
           </div>
         </div>
@@ -163,32 +193,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 09: How We Work */}
-      <section className="relative py-24 sm:py-32 overflow-hidden bg-white text-navy border-t border-slate-100">
-        <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="text-primary font-mono font-bold tracking-widest uppercase text-xs sm:text-sm mb-3">
-                How we work
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-navy tracking-tight leading-tight">
-                Understand first.<br/>Build with clarity.
-              </h2>
-            </div>
-            <a 
-              href="/company/how-we-work" 
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 hover:bg-navy text-navy hover:text-white border border-slate-200 font-medium text-sm transition-all duration-300 group shadow-sm"
-            >
-              <span>Our approach</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
 
-          <div className="w-full">
-            <AnimatedHowWeWork />
-          </div>
-        </div>
-      </section>
 
       {/* 10: FAQs */}
       <section className="py-24">
@@ -210,17 +215,12 @@ const Home = () => {
                 { q: 'How are cost and timelines decided?', a: 'They depend on scope, users, integrations, data migration and delivery priorities. A discovery conversation helps turn the requirement into a staged plan and a scoped quotation.' },
                 { q: 'What happens after the software is launched?', a: 'Training, support, maintenance and future improvements are agreed as part of the engagement. The aim is a clear handover and a practical path for continued use.' }
               ].map((faq, idx) => (
-                <details key={idx} className="group bg-white border border-border rounded-2xl overflow-hidden transition-all duration-300">
-                  <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-navy select-none">
-                    {faq.q}
-                    <span className="text-primary group-open:-rotate-180 transition-transform duration-300">
-                      <ChevronDown className="w-5 h-5" />
-                    </span>
-                  </summary>
-                  <div className="px-6 pb-6 pt-0 text-muted leading-relaxed">
-                    {faq.a}
-                  </div>
-                </details>
+                <FAQItem 
+                  key={idx} 
+                  faq={faq} 
+                  isOpen={openFaqIndex === idx}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                />
               ))}
             </div>
           </div>

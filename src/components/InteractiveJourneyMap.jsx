@@ -72,7 +72,7 @@ const InteractiveJourneyMap = () => {
       className="relative w-full bg-white text-[#0B192C] lg:h-[200vh]"
     >
       {/* Sticky Viewport Container - Edge-to-Edge Full Width */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center py-8 sm:py-12 bg-white z-20">
+      <div className="sticky top-0 h-screen w-full flex flex-col pt-[4vh] sm:pt-[8vh] pb-8 bg-white z-20">
         
         {/* Centered Section Title */}
         <div className="text-center mb-10 sm:mb-14 px-4">

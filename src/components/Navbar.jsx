@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown, Sparkles, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Icon } from '@iconify/react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,21 +24,27 @@ const Navbar = () => {
   }, [location]);
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/company' },
     { 
       name: 'Services', 
       href: '/services', 
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Custom Software Development', href: '/services/custom-software-development' },
-        { name: 'AI Integration & Automation', href: '/services/ai-integration-automation' },
-        { name: 'Custom ERP Development', href: '/services/erp-development' },
-        { name: 'Business Process Automation', href: '/services/business-automation' },
-        { name: 'SaaS Product Development', href: '/services/saas-product-development' },
+        { name: 'Custom Software Development', href: '/services/custom-software-development', icon: 'solar:code-square-bold-duotone' },
+        { name: 'Custom ERP Development', href: '/services/erp-development', icon: 'solar:box-minimalistic-bold-duotone' },
+        { name: 'AI Integration & Automation', href: '/services/ai-integration-automation', icon: 'solar:magic-stick-3-bold-duotone' },
+        { name: 'Business Process Automation', href: '/services/business-automation', icon: 'solar:settings-bold-duotone' },
+        { name: 'API & System Integration', href: '/services/api-system-integration', icon: 'solar:branching-paths-up-bold-duotone' },
+        { name: 'SaaS Product Development', href: '/services/saas-product-development', icon: 'solar:cloud-bold-duotone' },
+        { name: 'Custom CRM Development', href: '/services/crm-development', icon: 'solar:users-group-two-rounded-bold-duotone' },
+        { name: 'Custom HRMS Development', href: '/services/hrms-development', icon: 'solar:user-id-bold-duotone' },
+        { name: 'Mobile App Development', href: '/services/mobile-app-development', icon: 'solar:smartphone-bold-duotone' },
+        { name: 'Legacy Software Modernization', href: '/services/legacy-software-modernization', icon: 'solar:refresh-circle-bold-duotone' },
       ]
     },
     { name: 'Case Studies', href: '/our-work' },
-    { name: 'Insights', href: '/products' },
+    { name: 'Insights', href: '/insights' },
   ];
 
   return (
@@ -60,11 +67,13 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = link.href === '/' ? location.pathname === '/' : location.pathname.startsWith(link.href);
+              return (
               <div key={link.name} className="relative group">
                 {link.hasDropdown ? (
                   <div 
-                    className="flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-[#0066FF] transition-colors py-2 cursor-pointer"
+                    className={`flex items-center gap-1 text-sm font-semibold transition-colors py-2 cursor-pointer ${isActive ? 'text-[#0066FF]' : 'text-slate-600 hover:text-[#0066FF]'}`}
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                   >
@@ -74,32 +83,40 @@ const Navbar = () => {
                     <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-[#0066FF] transition-transform duration-200 group-hover:rotate-180" />
                     
                     {/* Dropdown Menu */}
-                    <div className="absolute top-full left-0 mt-1 w-64 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-100 shadow-xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
-                      <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1.5 mb-1">
+                    <div className="absolute top-full left-0 mt-1 w-[280px] rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-100 shadow-xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50">
+                      {/* Upward caret pointer */}
+                      <div className="absolute -top-1.5 left-8 w-3 h-3 bg-white border-t border-l border-slate-100 rotate-45"></div>
+                      
+                      <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1.5 mb-1 relative z-10">
                         Core Capabilities
                       </div>
-                      {link.dropdownItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-700 hover:text-[#0066FF] hover:bg-blue-50/80 transition-colors"
-                        >
-                          <span>{item.name}</span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#0066FF]" />
-                        </Link>
-                      ))}
+                      <div className="relative z-10 flex flex-col gap-0.5">
+                        {link.dropdownItems.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium text-slate-700 hover:text-[#0066FF] hover:bg-blue-50/80 transition-colors group/item"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <Icon icon={item.icon} className="w-4 h-4 text-[#0B192C] group-hover/item:text-[#0066FF] transition-colors" />
+                              <span>{item.name}</span>
+                            </div>
+                            <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#0066FF]" />
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : (
                   <Link
                     to={link.href}
-                    className="text-sm font-semibold text-slate-600 hover:text-[#0066FF] transition-colors py-2"
+                    className={`text-sm font-semibold transition-colors py-2 ${isActive ? 'text-[#0066FF]' : 'text-slate-600 hover:text-[#0066FF]'}`}
                   >
                     {link.name}
                   </Link>
                 )}
               </div>
-            ))}
+            )})}
           </nav>
 
           {/* Right Action Buttons */}
@@ -155,16 +172,18 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-3 p-4 rounded-2xl bg-white border border-slate-200 shadow-2xl animate-in fade-in-50 slide-in-from-top-3 duration-200">
             <nav className="flex flex-col gap-2">
-              {navLinks.map((link) => (
+              {navLinks.map((link) => {
+                const isActive = link.href === '/' ? location.pathname === '/' : location.pathname.startsWith(link.href);
+                return (
                 <div key={link.name} className="py-1">
                   <Link
                     to={link.href}
-                    className="block px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 hover:bg-blue-50 hover:text-[#0066FF]"
+                    className={`block px-3 py-2 rounded-xl text-sm font-semibold hover:bg-blue-50 hover:text-[#0066FF] ${isActive ? 'text-[#0066FF] bg-blue-50/50' : 'text-slate-800'}`}
                   >
                     {link.name}
                   </Link>
                 </div>
-              ))}
+              )})}
               <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
                 <Link
                   to="/project-enquiry"
