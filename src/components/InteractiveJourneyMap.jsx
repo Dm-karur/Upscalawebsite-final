@@ -69,13 +69,43 @@ const InteractiveJourneyMap = () => {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full bg-white text-[#0B192C] lg:h-[200vh]"
+      className="relative w-full text-[#0B192C] lg:h-[200vh]"
     >
       {/* Sticky Viewport Container - Edge-to-Edge Full Width */}
-      <div className="sticky top-0 h-screen w-full flex flex-col pt-[4vh] sm:pt-[8vh] pb-8 bg-white z-20">
+      <div className="sticky top-0 h-screen w-full flex flex-col pt-[4vh] sm:pt-[8vh] pb-8 z-20 overflow-hidden">
+        
+        {/* Layer 1: Background Video */}
+        <div className="absolute inset-0 -z-30 overflow-hidden pointer-events-none">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4174-large.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Layer 2: Variable Blur Overlay via CSS mask-image */}
+        <div 
+          className="absolute inset-0 -z-20 backdrop-blur-[12px] pointer-events-none"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 75%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, black 35%, transparent 75%)'
+          }}
+        />
+
+        {/* Layer 3: Solid White to Transparent Cinematic Gradient Overlay */}
+        <div 
+          className="absolute inset-0 -z-10 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.98) 15%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.60) 50%, rgba(255,255,255,0.20) 75%, rgba(255,255,255,0) 100%)'
+          }}
+        />
         
         {/* Centered Section Title */}
-        <div className="text-center mb-10 sm:mb-14 px-4">
+        <div className="text-center mb-10 sm:mb-14 px-4 mt-4 md:mt-0">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0B192C]">
             The Upscala Journey
           </h2>
